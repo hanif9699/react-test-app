@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Product from './product'
 import { addToCart } from '../reducers/cartSlice'
+// import './index.css'
 const list_limit = 6
 const ProductListing = (props) => {
     // const dispatch=useDispatch()
@@ -24,7 +25,10 @@ const ProductListing = (props) => {
         setIndex(newPage * list_limit)
     }
     return (
-        <div>
+        <div className="product-wrapper">
+            {props.loading ? 'Loading the product ...'
+            : 
+            (props.error? props.error: '')}
             {showProduct.map((product) => <Product key={product.id} product={product} addToCart={props.handleAddToCart} />)}
             {showProduct.length > 0 && showButton ? <button onClick={handleLoadMore}>Load More</button> : ''}
         </div>
@@ -37,7 +41,8 @@ ProductListing.propTypes = {
 const mapStateToProps = (state) => {
     return {
         loading: state.product.isFetching,
-        products: state.product.products
+        products: state.product.products,
+        error:state.product.errorMessage
     };
 }
 const mapDispatchToProps = (dispatch) => {

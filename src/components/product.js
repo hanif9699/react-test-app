@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+// import './index.css'
 const quantityValue=[1,2,3,4,5,6,7,8,9]
 const Product = (props) => {
     // console.log(props)
@@ -19,7 +20,7 @@ const Product = (props) => {
                 <p>{props.product.description}</p>
             </div>
             <div className="description-wrap">
-                <p>Quantity:</p>
+                <span>Quantity:</span>
                 <select type="number" value={quantity} min="1" onChange={handleChange}>
                 {quantityValue.map((value,index)=><option key={index} value={value}>{value}</option>)}
                 </select>

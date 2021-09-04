@@ -5,8 +5,10 @@ import { addToCart, removeFromCart, removeProductFromCart } from '../reducers/ca
 
 const CartPage = (props) => {
     return (
-        <div>
-            Cart Page
+        <div className="cart-page">
+            <div className="cart-heading">
+            <h1>Your Shopping Cart</h1><hr />
+            </div>
             {props.cartItems.map((item, index) => <CartItem cartitem={item} key={index} addToCart={props.handleAddToCart} removeFromCart={props.handleRemoveFromCart} removeProduct={props.handleRemoveProductFromCart} />)}
         </div>
     )
