@@ -16,14 +16,19 @@ const Product = (props) => {
             <div className="title">
                 <strong>{props.product.title}</strong>
             </div>
-            <div className="description-wrap">
+            {/* <div className="description-wrap">
                 <p>{props.product.description}</p>
-            </div>
+            </div> */}
             <div className="description-wrap">
-                <span>Quantity:</span>
+                <p>
+                <span>Quantity: </span>
                 <select type="number" value={quantity} min="1" onChange={handleChange}>
                 {quantityValue.map((value,index)=><option key={index} value={value}>{value}</option>)}
                 </select>
+                </p>
+            </div>
+            <div className="price-wrap">
+                <p><span>Price: </span>{props.product.price}</p>
             </div>
             <div className="add-to-cart-wrap">
                 <button onClick={()=>{props.addToCart(props.product,quantity)}}>Add to Cart</button>

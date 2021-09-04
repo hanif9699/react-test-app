@@ -63,3 +63,7 @@ span.nav-link a {
     display: flex;
     align-items: center;
 }
+.header-wrapper{
+    position: sticky;
+    top:0;
+}
