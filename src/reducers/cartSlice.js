@@ -59,7 +59,7 @@ const cartSlice = createSlice({
             } else {
                 cartItems = state.cartItems.filter(x => x.id !== itemToRemove.id)
             }
-            totalAmount = state.totalAmount- itemToRemove.price
+            totalAmount = cartItems.length > 0 ? state.totalAmount - itemToRemove.price : 0
             totalQuantity = parseInt(state.totalQuantity, 10) - 1
             return Object.assign({}, state, {
                 cartItems,
@@ -75,7 +75,7 @@ const cartSlice = createSlice({
             }
             let cartItems, totalAmount, totalQuantity;
             cartItems = state.cartItems.filter(x => x.id !== itemToRemove.id)
-            totalAmount = state.totalAmount - itemToRemove.amount
+            totalAmount = cartItems.length > 0 ? state.totalAmount - itemToRemove.amount : 0
             totalQuantity = state.totalQuantity - itemToRemove.quantity
             return Object.assign({}, state, {
                 cartItems,

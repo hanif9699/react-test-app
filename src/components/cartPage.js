@@ -9,6 +9,9 @@ const CartPage = (props) => {
             <div className="cart-heading">
             <h1>Your Shopping Cart</h1><hr />
             </div>
+            <div>
+                {props.cartItems.length === 0 ? 'You have no products in cart': ''}
+            </div>
             {props.cartItems.map((item, index) => <CartItem cartitem={item} key={index} addToCart={props.handleAddToCart} removeFromCart={props.handleRemoveFromCart} removeProduct={props.handleRemoveProductFromCart} />)}
         </div>
     )
